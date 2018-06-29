@@ -52,11 +52,15 @@
 void interrupt INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(INTCONbits.PEIE == 1)
+    if(INTCONbits.INTE == 1 && INTCONbits.INTF == 1)
     {
-        if(PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
+        INT_ISR();
+    }
+    else if(INTCONbits.PEIE == 1)
+    {
+        if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
         {
-            TMR2_ISR();
+            ADC_ISR();
         } 
         else
         {

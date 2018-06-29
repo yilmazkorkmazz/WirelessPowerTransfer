@@ -61,14 +61,15 @@ void main(void)
     INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
+    INTERRUPT_GlobalInterruptDisable();
 
     // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
+    INTERRUPT_PeripheralInterruptDisable();
 
     while (1)
     {
-        // Add your application code
+        start();
+        
     }
 }
 /**
