@@ -56,7 +56,7 @@
 #include "adc.h"
 #include "tmr0.h"
 
-#define _XTAL_FREQ  32000000
+#define _XTAL_FREQ  16000000
 
 
 /**
