@@ -36,3 +36,36 @@ void starttt(void)
        }  
    }   
 }
+
+
+//void starttt(void)
+//{
+//   0032H = 6 ;
+//   0033H = 0;
+//   TMR0_Reload(void);
+//   ADC_StartConversion();
+//   
+//   while ( 0032H > 0)
+//   {
+//       while(ADRESH.3 == 1 & !TMR0_HasOverflowOccured(void))
+//       {
+//           0033H = 1;
+//       }
+//       
+//       if (ADC_IsConversionDone())
+//       {
+//           if(0033H == 1)
+//           {
+//               0032H = 0032H - 1;
+//           }
+//           else
+//           {
+//               0032H = 6;   
+//           }
+//           TMR0_Reload(void)
+//           ADC_StartConversion();
+//           0033H = 0;
+//       }  
+//   }   
+//}
+
