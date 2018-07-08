@@ -51,25 +51,20 @@ void main(void)
     // initialize the device
     SYSTEM_Initialize();
 
-    // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
-    // Use the following macros to:
-
-    // Enable the Global Interrupts
-    INTERRUPT_GlobalInterruptEnable();
-
-    // Enable the Peripheral Interrupts
-    INTERRUPT_PeripheralInterruptEnable();
-
-    // Disable the Global Interrupts
-    INTERRUPT_GlobalInterruptDisable();
-
-    // Disable the Peripheral Interrupts
-    INTERRUPT_PeripheralInterruptDisable();
+    
+        OPTION_REGbits.T0CS = 0;               // Timer increments on instruction clock
+        EXT_INT_Initialize(void);    //external interrupt 
+        INTCONbits. GIE = 1;                // Global interrupt enable
+        INTCONbits. PEIE = 1;           // Peripheral interrupt enable
+           
+        starttt();
 
     while (1)
     {
-        start();
-        
+      while(OPTION_REGbits.INTEDG == 1)
+      {
+      checkpower(); 
+      }
     }
 }
 /**

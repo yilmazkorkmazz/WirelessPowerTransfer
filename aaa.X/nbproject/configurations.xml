@@ -10,7 +10,6 @@
         <itemPath>mcc_generated_files/mcc.h</itemPath>
         <itemPath>mcc_generated_files/pin_manager.h</itemPath>
         <itemPath>mcc_generated_files/interrupt_manager.h</itemPath>
-        <itemPath>mcc_generated_files/dac.h</itemPath>
         <itemPath>mcc_generated_files/ext_int.h</itemPath>
         <itemPath>mcc_generated_files/adc.h</itemPath>
         <itemPath>mcc_generated_files/tmr0.h</itemPath>
@@ -33,15 +32,14 @@
         <itemPath>mcc_generated_files/device_config.c</itemPath>
         <itemPath>mcc_generated_files/pin_manager.c</itemPath>
         <itemPath>mcc_generated_files/interrupt_manager.c</itemPath>
-        <itemPath>mcc_generated_files/dac.c</itemPath>
         <itemPath>mcc_generated_files/ext_int.c</itemPath>
         <itemPath>mcc_generated_files/adc.c</itemPath>
         <itemPath>mcc_generated_files/tmr0.c</itemPath>
         <itemPath>checkonebit.c</itemPath>
         <itemPath>checkpower.c</itemPath>
+        <itemPath>starttt.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
-      <itemPath>starttt.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

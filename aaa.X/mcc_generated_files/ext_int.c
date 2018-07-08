@@ -26,12 +26,14 @@
  */
 #include <xc.h>
 #include "ext_int.h"
+#include "mcc_generated_files/mcc.h"
 
 void (*INT_InterruptHandler)(void);
 
 void INT_ISR(void)
 {
-    EXT_INT_InterruptFlagClear();
+    //EXT_INT_InterruptFlagClear();
+    INTCONbits.T0IF = 0;
 
     // Callback function gets called everytime this ISR executes
     INT_CallBack();    
@@ -61,11 +63,14 @@ void EXT_INT_Initialize(void)
     
     // Clear the interrupt flag
     // Set the external interrupt edge detect
-    EXT_INT_InterruptFlagClear();   
-    EXT_INT_risingEdgeSet();    
+    //EXT_INT_InterruptFlagClear();
+    INTCONbits.T0IF = 0;
+    //EXT_INT_risingEdgeSet(); 
+    OPTION_REGbits.INTEDG = 1;
     // Set Default Interrupt Handler
     INT_SetInterruptHandler(INT_DefaultInterruptHandler);
-    EXT_INT_InterruptEnable();      
+    //EXT_INT_InterruptEnable(); 
+    INTCONbits.INTE = 1;
 
 }
 

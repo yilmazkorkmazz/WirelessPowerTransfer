@@ -73,7 +73,7 @@ void ADC_Initialize(void)
     ADCON1 = 0x02;
     
     // TRIGSEL no_auto_trigger; 
-    ADCON2 = 0x00;
+    ADCON2 = 0x30;
     
     // ADRESL 0; 
     ADRESL = 0x00;

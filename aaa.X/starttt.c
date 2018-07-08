@@ -16,7 +16,6 @@ void starttt(void)
        while(ADRESH.3 == 1 & ADCON2 == 0)
        {
            0033H = 1;
-           //
        }
        
        if (ADC_IsConversionDone())

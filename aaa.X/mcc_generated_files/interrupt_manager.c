@@ -72,6 +72,19 @@ void interrupt INTERRUPT_InterruptManager (void)
         //Unhandled Interrupt
     }
 }
+
+
+void interrupt   tc_int  (void)        // interrupt function 
+ 
+{
+        if(INTCONbits.T0IF && INTCONbits.T0IE) 
+    {                                     // if timer flag is set & interrupt enabled
+                TMR0 -= 250;               // reload the timer - 250uS per interrupt
+                INTCONbits.T0IF = 0;                  // clear the interrupt flag 
+                PORTB = 0x40;             // toggle a bit to say we're alive
+        }
+ 
+}
 /**
  End of File
 */
