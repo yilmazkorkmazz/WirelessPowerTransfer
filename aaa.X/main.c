@@ -51,19 +51,22 @@ void main(void)
     // initialize the device
     SYSTEM_Initialize();
 
-    
-        OPTION_REGbits.T0CS = 0;               // Timer increments on instruction clock
-        EXT_INT_Initialize(void);    //external interrupt 
+   
         INTCONbits. GIE = 1;                // Global interrupt enable
         INTCONbits. PEIE = 1;           // Peripheral interrupt enable
+        INTCONbits.TMR0IF = 0;
+        INTCONbits.TMR0IE = 1;
+        TMR0 = 0;
+       
            
         starttt();
 
     while (1)
     {
-      while(OPTION_REGbits.INTEDG == 1)
+      while(!errorOccured())//error gelicek
+      //while(OPTION_REGbits.INTEDG == 1)
       {
-      checkpower(); 
+      checktype(); 
       }
     }
 }

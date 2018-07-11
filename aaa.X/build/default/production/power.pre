@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "power.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3782,12 +3782,6 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 136 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-
-# 148
-void PIN_MANAGER_IOC(void);
-
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdint.h"
 typedef signed char int8_t;
 
@@ -3881,6 +3875,54 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdbool.h"
 typedef unsigned char bool;
 
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+# 77
+typedef struct
+{
+adc_result_t adcResult1;
+adc_result_t adcResult2;
+} adc_sync_double_result_t;
+
+# 95
+typedef enum
+{
+channel_Temp = 0x1D,
+channel_DAC = 0x1E,
+channel_FVR = 0x1F
+} adc_channel_t;
+
+# 135
+void ADC_Initialize(void);
+
+# 165
+void ADC_SelectChannel(adc_channel_t channel);
+
+# 192
+void ADC_StartConversion();
+
+# 224
+bool ADC_IsConversionDone();
+
+# 257
+adc_result_t ADC_GetConversionResult(void);
+
+# 287
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+
+# 315
+void ADC_TemperatureAcquisitionDelay(void);
+
+# 331
+void ADC_ISR(void);
+
+# 136 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+
+# 148
+void PIN_MANAGER_IOC(void);
+
 # 109 "mcc_generated_files/interrupt_manager.h"
 void interrupt INTERRUPT_InterruptManager(void);
 
@@ -3938,48 +3980,6 @@ extern void (*INT_InterruptHandler)(void);
 # 367
 void INT_DefaultInterruptHandler(void);
 
-# 72 "mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
-
-# 77
-typedef struct
-{
-adc_result_t adcResult1;
-adc_result_t adcResult2;
-} adc_sync_double_result_t;
-
-# 95
-typedef enum
-{
-channel_Temp = 0x1D,
-channel_DAC = 0x1E,
-channel_FVR = 0x1F
-} adc_channel_t;
-
-# 135
-void ADC_Initialize(void);
-
-# 165
-void ADC_SelectChannel(adc_channel_t channel);
-
-# 192
-void ADC_StartConversion();
-
-# 224
-bool ADC_IsConversionDone();
-
-# 257
-adc_result_t ADC_GetConversionResult(void);
-
-# 287
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-
-# 315
-void ADC_TemperatureAcquisitionDelay(void);
-
-# 331
-void ADC_ISR(void);
-
 # 98 "mcc_generated_files/tmr0.h"
 void TMR0_Initialize(void);
 
@@ -4014,29 +4014,58 @@ void OSCILLATOR_Initialize(void);
 # 98
 void WDT_Initialize(void);
 
-# 49 "main.c"
-void main(void)
+# 6 "power.c"
+extern volatile unsigned char checkdigit2 @ 0x420;
+extern volatile unsigned char devicetype @ 0x430;
+extern volatile unsigned char digitnumber @ 0x440;
+extern volatile unsigned char digitloop @ 0x450;
+extern volatile unsigned char basestwo @ 0x460;
+
+void checkbit()
 {
+ADC_StartConversion();
+checkdigit2 = 0;
 
-SYSTEM_Initialize();
-
-
-INTCONbits. GIE = 1;
-INTCONbits. PEIE = 1;
-INTCONbits.TMR0IF = 0;
-INTCONbits.TMR0IE = 1;
-TMR0 = 0;
-
-
-starttt();
-
-while (1)
+while (!ADC_IsConversionDone())
 {
-while(!errorOccured())
-
+while(ADRESH > 32 & ADCON2 == 0)
 {
-checktype();
+checkdigit2 = 1;
+
 }
 }
 }
 
+uint8_t checktype(void)
+{
+devicetype = 0;
+digitnumber = 0;
+
+while (digitnumber < 4)
+{
+basestwo = 2;
+checkbit();
+
+if (checkdigit2 == 1)
+{
+if (digitnumber == 0)
+{
+devicetype = 1;
+}
+else
+{
+for (digitloop = digitnumber;digitloop > 1; digitloop-- )
+{
+basestwo = basestwo + basestwo;
+}
+devicetype = devicetype + basestwo;
+}
+}
+else
+{
+devicetype = devicetype;
+}
+digitnumber = digitnumber + 1;
+}
+return devicetype;
+}

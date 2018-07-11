@@ -59,13 +59,13 @@ void PIN_MANAGER_Initialize(void)
     /**
     LATx registers
     */
-    LATA = 0x00;
+    LATA = 0x20;
     LATC = 0x00;
 
     /**
     TRISx registers
     */
-    TRISA = 0x3F;
+    TRISA = 0x3E;
     TRISC = 0x3D;
 
     /**
@@ -89,10 +89,8 @@ void PIN_MANAGER_Initialize(void)
     */
     APFCON = 0x00;
 
-
-
-
-   
+    // Enable IOCI interrupt 
+    INTCONbits.IOCIE = 1; 
     
 }
   

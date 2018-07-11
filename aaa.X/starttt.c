@@ -2,70 +2,38 @@
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/pin_manager.h"
 #include "mcc_generated_files/tmr0.h"
+#include "mcc_generated_files/tmr1.h"
 
+extern volatile unsigned char           controltimes              @ 0x320;
+extern volatile unsigned char           checkdigit              @ 0x330;
 
-void starttt(void)
+void starttt()
 {
-   0032H = 6 ;
-   0033H = 0;
-   ADCON2 = 0;
+   controltimes = 6 ;
+   checkdigit = 0;
+   TMR1_StartTimer();
    ADC_StartConversion();
    
-   while ( 0032H > 0)
+   while ( controltimes > 0)
    {
-       while(ADRESH.3 == 1 & ADCON2 == 0)
+       while (ADRESH > 32 & ADCON2 == 0)
        {
-           0033H = 1;
+           checkdigit = 1;
        }
        
        if (ADC_IsConversionDone())
        {
-           ADCON2 = 0;
-           
-           if(0033H == 1)
+           if(checkdigit == 1)
            {
-               0032H = 0032H - 1;
+               controltimes = controltimes - 1;
            }
            else
            {
-               0032H = 6;   
+               controltimes = 6;   
            }
-           
+           TMR1_Reload();
            ADC_StartConversion();
-           0033H = 0;
+           checkdigit = 0;
        }  
    }   
 }
-
-
-//void starttt(void)
-//{
-//   0032H = 6 ;
-//   0033H = 0;
-//   TMR0_Reload(void);
-//   ADC_StartConversion();
-//   
-//   while ( 0032H > 0)
-//   {
-//       while(ADRESH.3 == 1 & !TMR0_HasOverflowOccured(void))
-//       {
-//           0033H = 1;
-//       }
-//       
-//       if (ADC_IsConversionDone())
-//       {
-//           if(0033H == 1)
-//           {
-//               0032H = 0032H - 1;
-//           }
-//           else
-//           {
-//               0032H = 6;   
-//           }
-//           TMR0_Reload(void)
-//           ADC_StartConversion();
-//           0033H = 0;
-//       }  
-//   }   
-//}
-

@@ -1,6 +1,6 @@
- build/default/production/mcc_generated_files/interrupt_manager.d  \
- build/default/production/mcc_generated_files/interrupt_manager.p1:  \
- mcc_generated_files/interrupt_manager.c  \
+ build/default/production/power.d  \
+ build/default/production/power.p1:  \
+ power.c  \
 mcc_generated_files/mcc.h  \
 mcc_generated_files/adc.h  \
 mcc_generated_files/ext_int.h  \

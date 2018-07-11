@@ -1,42 +1,51 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1646 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic16f1503.h
-[v _LATA `Vuc ~T0 @X0 0 e@268 ]
-"1690
-[v _LATC `Vuc ~T0 @X0 0 e@270 ]
-"930
-[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
-"979
-[v _TRISC `Vuc ~T0 @X0 0 e@142 ]
-"2306
-[v _ANSELC `Vuc ~T0 @X0 0 e@398 ]
-"2260
-[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
-"2533
-[v _WPUA `Vuc ~T0 @X0 0 e@524 ]
-"1143
-[s S68 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S68 . PS PSA TMR0SE TMR0CS INTEDG nWPUEN ]
-"1151
-[s S69 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S69 . PS0 PS1 PS2 . T0SE T0CS ]
-"1142
-[u S67 `S68 1 `S69 1 ]
-[n S67 . . . ]
-"1160
-[v _OPTION_REGbits `VS67 ~T0 @X0 0 e@149 ]
-"2216
-[v _APFCON `Vuc ~T0 @X0 0 e@285 ]
-"341
-[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
-"351
-[s S27 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S27 . . T0IF . T0IE ]
-"340
-[u S25 `S26 1 `S27 1 ]
-[n S25 . . . ]
-"358
-[v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
+"1474 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic16f1503.h
+[v _ADCON0 `Vuc ~T0 @X0 0 e@157 ]
+"1553
+[v _ADCON1 `Vuc ~T0 @X0 0 e@158 ]
+"1599
+[v _ADCON2 `Vuc ~T0 @X0 0 e@159 ]
+"1436
+[v _ADRESL `Vuc ~T0 @X0 0 e@155 ]
+"1455
+[v _ADRESH `Vuc ~T0 @X0 0 e@156 ]
+"1034
+[s S62 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S62 . TMR1IE TMR2IE . SSP1IE . ADIE TMR1GIE ]
+"1033
+[u S61 `S62 1 ]
+[n S61 . . ]
+"1044
+[v _PIE1bits `VS61 ~T0 @X0 0 e@145 ]
+"89 mcc_generated_files/adc.c
+[c E2941 29 30 31 .. ]
+[n E2941 . channel_Temp channel_DAC channel_FVR  ]
+"1480 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic16f1503.h
+[s S85 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
+[n S85 . ADON GO_nDONE CHS ]
+"1485
+[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S86 . . ADGO CHS0 CHS1 CHS2 CHS3 CHS4 ]
+"1494
+[s S87 :1 `uc 1 :1 `uc 1 ]
+[n S87 . . GO ]
+"1479
+[u S84 `S85 1 `S86 1 `S87 1 ]
+[n S84 . . . . ]
+"1499
+[v _ADCON0bits `VS84 ~T0 @X0 0 e@157 ]
+[v F2897 `(v ~T0 @X0 1 tf1`ul ]
+"152 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic.h
+[v __delay `JF2897 ~T0 @X0 0 e ]
+[p i __delay ]
+"516 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic16f1503.h
+[s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S33 . TMR1IF TMR2IF . SSP1IF . ADIF TMR1GIF ]
+"515
+[u S32 `S33 1 ]
+[n S32 . . ]
+"526
+[v _PIR1bits `VS32 ~T0 @X0 0 e@17 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2841,60 +2850,258 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;adc.h: 72: typedef uint16_t adc_result_t;
+[; ;adc.h: 77: typedef struct
+[; ;adc.h: 78: {
+[; ;adc.h: 79: adc_result_t adcResult1;
+[; ;adc.h: 80: adc_result_t adcResult2;
+[; ;adc.h: 81: } adc_sync_double_result_t;
+[; ;adc.h: 95: typedef enum
+[; ;adc.h: 96: {
+[; ;adc.h: 97: channel_Temp = 0x1D,
+[; ;adc.h: 98: channel_DAC = 0x1E,
+[; ;adc.h: 99: channel_FVR = 0x1F
+[; ;adc.h: 100: } adc_channel_t;
+[; ;adc.h: 135: void ADC_Initialize(void);
+[; ;adc.h: 165: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 192: void ADC_StartConversion();
+[; ;adc.h: 224: bool ADC_IsConversionDone();
+[; ;adc.h: 257: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 287: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 315: void ADC_TemperatureAcquisitionDelay(void);
+[; ;adc.h: 331: void ADC_ISR(void);
 [; ;pin_manager.h: 136: void PIN_MANAGER_Initialize (void);
 [; ;pin_manager.h: 148: void PIN_MANAGER_IOC(void);
-[; ;stdbool.h: 12: typedef unsigned char bool;
-"57 mcc_generated_files/pin_manager.c
-[v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
-"58
+[; ;interrupt_manager.h: 109: void interrupt INTERRUPT_InterruptManager(void);
+[; ;tmr1.h: 100: void TMR1_Initialize(void);
+[; ;tmr1.h: 129: void TMR1_StartTimer(void);
+[; ;tmr1.h: 161: void TMR1_StopTimer(void);
+[; ;tmr1.h: 196: uint16_t TMR1_ReadTimer(void);
+[; ;tmr1.h: 235: void TMR1_WriteTimer(uint16_t timerVal);
+[; ;tmr1.h: 271: void TMR1_Reload(void);
+[; ;tmr1.h: 310: void TMR1_StartSinglePulseAcquisition(void);
+[; ;tmr1.h: 349: uint8_t TMR1_CheckGateValueStatus(void);
+[; ;tmr1.h: 367: void TMR1_ISR(void);
+[; ;tmr1.h: 385: void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;tmr1.h: 403: extern void (*TMR1_InterruptHandler)(void);
+[; ;tmr1.h: 421: void TMR1_DefaultInterruptHandler(void);
+[; ;ext_int.h: 250: void EXT_INT_Initialize(void);
+[; ;ext_int.h: 272: void INT_ISR(void);
+[; ;ext_int.h: 296: void INT_CallBack(void);
+[; ;ext_int.h: 319: void INT_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;ext_int.h: 343: extern void (*INT_InterruptHandler)(void);
+[; ;ext_int.h: 367: void INT_DefaultInterruptHandler(void);
+[; ;tmr0.h: 98: void TMR0_Initialize(void);
+[; ;tmr0.h: 129: uint8_t TMR0_ReadTimer(void);
+[; ;tmr0.h: 168: void TMR0_WriteTimer(uint8_t timerVal);
+[; ;tmr0.h: 204: void TMR0_Reload(void);
+[; ;tmr0.h: 219: void TMR0_ISR(void);
+[; ;tmr0.h: 238: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;tmr0.h: 256: extern void (*TMR0_InterruptHandler)(void);
+[; ;tmr0.h: 274: void TMR0_DefaultInterruptHandler(void);
+[; ;tmr0.h: 275: void interrupt Timer0_ISR(void);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 98: void WDT_Initialize(void);
+"65 mcc_generated_files/adc.c
+[v _ADC_Initialize `(v ~T0 @X0 1 ef ]
+"66
 {
-[; ;pin_manager.c: 57: void PIN_MANAGER_Initialize(void)
-[; ;pin_manager.c: 58: {
-[e :U _PIN_MANAGER_Initialize ]
+[; ;adc.c: 65: void ADC_Initialize(void)
+[; ;adc.c: 66: {
+[e :U _ADC_Initialize ]
 [f ]
-[; ;pin_manager.c: 62: LATA = 0x20;
-"62
-[e = _LATA -> -> 32 `i `uc ]
-[; ;pin_manager.c: 63: LATC = 0x00;
-"63
-[e = _LATC -> -> 0 `i `uc ]
-[; ;pin_manager.c: 68: TRISA = 0x3E;
-"68
-[e = _TRISA -> -> 62 `i `uc ]
-[; ;pin_manager.c: 69: TRISC = 0x3D;
-"69
-[e = _TRISC -> -> 61 `i `uc ]
-[; ;pin_manager.c: 74: ANSELC = 0x09;
-"74
-[e = _ANSELC -> -> 9 `i `uc ]
-[; ;pin_manager.c: 75: ANSELA = 0x13;
-"75
-[e = _ANSELA -> -> 19 `i `uc ]
-[; ;pin_manager.c: 80: WPUA = 0x00;
-"80
-[e = _WPUA -> -> 0 `i `uc ]
-[; ;pin_manager.c: 81: OPTION_REGbits.nWPUEN = 1;
-"81
-[e = . . _OPTION_REGbits 0 5 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 90: APFCON = 0x00;
-"90
-[e = _APFCON -> -> 0 `i `uc ]
-[; ;pin_manager.c: 93: INTCONbits.IOCIE = 1;
-"93
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 95: }
-"95
-[e :UE 341 ]
-}
-"97
-[v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
-"98
-{
-[; ;pin_manager.c: 97: void PIN_MANAGER_IOC(void)
-[; ;pin_manager.c: 98: {
-[e :U _PIN_MANAGER_IOC ]
-[f ]
-[; ;pin_manager.c: 99: }
-"99
+[; ;adc.c: 70: ADCON0 = 0x01;
+"70
+[e = _ADCON0 -> -> 1 `i `uc ]
+[; ;adc.c: 73: ADCON1 = 0x02;
+"73
+[e = _ADCON1 -> -> 2 `i `uc ]
+[; ;adc.c: 76: ADCON2 = 0x30;
+"76
+[e = _ADCON2 -> -> 48 `i `uc ]
+[; ;adc.c: 79: ADRESL = 0x00;
+"79
+[e = _ADRESL -> -> 0 `i `uc ]
+[; ;adc.c: 82: ADRESH = 0x00;
+"82
+[e = _ADRESH -> -> 0 `i `uc ]
+[; ;adc.c: 85: PIE1bits.ADIE = 1;
+"85
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;adc.c: 86: }
+"86
 [e :UE 342 ]
+}
+"88
+[v _ADC_SelectChannel `(v ~T0 @X0 1 ef1`E2941 ]
+"89
+{
+[; ;adc.c: 88: void ADC_SelectChannel(adc_channel_t channel)
+[; ;adc.c: 89: {
+[e :U _ADC_SelectChannel ]
+"88
+[v _channel `E2941 ~T0 @X0 1 r1 ]
+"89
+[f ]
+[; ;adc.c: 91: ADCON0bits.CHS = channel;
+"91
+[e = . . _ADCON0bits 0 2 -> _channel `uc ]
+[; ;adc.c: 93: ADCON0bits.ADON = 1;
+"93
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;adc.c: 94: }
+"94
+[e :UE 343 ]
+}
+"96
+[v _ADC_StartConversion `(v ~T0 @X0 1 ef ]
+"97
+{
+[; ;adc.c: 96: void ADC_StartConversion()
+[; ;adc.c: 97: {
+[e :U _ADC_StartConversion ]
+[f ]
+[; ;adc.c: 99: ADCON0bits.GO_nDONE = 1;
+"99
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+[; ;adc.c: 100: }
+"100
+[e :UE 344 ]
+}
+"103
+[v _ADC_IsConversionDone `(uc ~T0 @X0 1 ef ]
+"104
+{
+[; ;adc.c: 103: bool ADC_IsConversionDone()
+[; ;adc.c: 104: {
+[e :U _ADC_IsConversionDone ]
+[f ]
+[; ;adc.c: 106: return ((bool)(!ADCON0bits.GO_nDONE));
+"106
+[e ) -> -> ! != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[e $UE 345  ]
+[; ;adc.c: 107: }
+"107
+[e :UE 345 ]
+}
+"109
+[v _ADC_GetConversionResult `(ui ~T0 @X0 1 ef ]
+"110
+{
+[; ;adc.c: 109: adc_result_t ADC_GetConversionResult(void)
+[; ;adc.c: 110: {
+[e :U _ADC_GetConversionResult ]
+[f ]
+[; ;adc.c: 112: return ((adc_result_t)((ADRESH << 8) + ADRESL));
+"112
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+[e $UE 346  ]
+[; ;adc.c: 113: }
+"113
+[e :UE 346 ]
+}
+"115
+[v _ADC_GetConversion `(ui ~T0 @X0 1 ef1`E2941 ]
+"116
+{
+[; ;adc.c: 115: adc_result_t ADC_GetConversion(adc_channel_t channel)
+[; ;adc.c: 116: {
+[e :U _ADC_GetConversion ]
+"115
+[v _channel `E2941 ~T0 @X0 1 r1 ]
+"116
+[f ]
+[; ;adc.c: 118: ADCON0bits.CHS = channel;
+"118
+[e = . . _ADCON0bits 0 2 -> _channel `uc ]
+[; ;adc.c: 121: ADCON0bits.ADON = 1;
+"121
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;adc.c: 124: _delay((unsigned long)((5)*(16000000/4000000.0)));
+"124
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;adc.c: 127: ADCON0bits.GO_nDONE = 1;
+"127
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+[; ;adc.c: 130: while (ADCON0bits.GO_nDONE)
+"130
+[e $U 348  ]
+[e :U 349 ]
+[; ;adc.c: 131: {
+"131
+{
+"132
+}
+[e :U 348 ]
+"130
+[e $ != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i 349  ]
+[e :U 350 ]
+[; ;adc.c: 132: }
+[; ;adc.c: 135: return ((adc_result_t)((ADRESH << 8) + ADRESL));
+"135
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+[e $UE 347  ]
+[; ;adc.c: 136: }
+"136
+[e :UE 347 ]
+}
+"138
+[v _ADC_TemperatureAcquisitionDelay `(v ~T0 @X0 1 ef ]
+"139
+{
+[; ;adc.c: 138: void ADC_TemperatureAcquisitionDelay(void)
+[; ;adc.c: 139: {
+[e :U _ADC_TemperatureAcquisitionDelay ]
+[f ]
+[; ;adc.c: 140: _delay((unsigned long)((200)*(16000000/4000000.0)));
+"140
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+[; ;adc.c: 141: }
+"141
+[e :UE 351 ]
+}
+"143
+[v _ADC_ISR `(v ~T0 @X0 1 ef ]
+"144
+{
+[; ;adc.c: 143: void ADC_ISR(void)
+[; ;adc.c: 144: {
+[e :U _ADC_ISR ]
+[f ]
+[; ;adc.c: 146: PIR1bits.ADIF = 0;
+"146
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;adc.c: 147: }
+"147
+[e :UE 352 ]
 }

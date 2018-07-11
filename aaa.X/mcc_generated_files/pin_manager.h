@@ -59,6 +59,18 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set RA0 procedures
+#define RA0_SetHigh()               do { LATAbits.LATA0 = 1; } while(0)
+#define RA0_SetLow()                do { LATAbits.LATA0 = 0; } while(0)
+#define RA0_Toggle()                do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
+#define RA0_GetValue()              PORTAbits.RA0
+#define RA0_SetDigitalInput()       do { TRISAbits.TRISA0 = 1; } while(0)
+#define RA0_SetDigitalOutput()      do { TRISAbits.TRISA0 = 0; } while(0)
+#define RA0_SetPullup()             do { WPUAbits.WPUA0 = 1; } while(0)
+#define RA0_ResetPullup()           do { WPUAbits.WPUA0 = 0; } while(0)
+#define RA0_SetAnalogMode()         do { ANSELAbits.ANSA0 = 1; } while(0)
+#define RA0_SetDigitalMode()        do { ANSELAbits.ANSA0 = 0; } while(0)
+
 // get/set RA1 procedures
 #define RA1_SetHigh()               do { LATAbits.LATA1 = 1; } while(0)
 #define RA1_SetLow()                do { LATAbits.LATA1 = 0; } while(0)
@@ -83,19 +95,19 @@
 #define RA2_SetAnalogMode()         do { ANSELAbits.ANSA2 = 1; } while(0)
 #define RA2_SetDigitalMode()        do { ANSELAbits.ANSA2 = 0; } while(0)
 
-// get/set PWR_SW aliases
-#define PWR_SW_TRIS                 TRISCbits.TRISC1
-#define PWR_SW_LAT                  LATCbits.LATC1
-#define PWR_SW_PORT                 PORTCbits.RC1
-#define PWR_SW_ANS                  ANSELCbits.ANSC1
-#define PWR_SW_SetHigh()            do { LATCbits.LATC1 = 1; } while(0)
-#define PWR_SW_SetLow()             do { LATCbits.LATC1 = 0; } while(0)
-#define PWR_SW_Toggle()             do { LATCbits.LATC1 = ~LATCbits.LATC1; } while(0)
-#define PWR_SW_GetValue()           PORTCbits.RC1
-#define PWR_SW_SetDigitalInput()    do { TRISCbits.TRISC1 = 1; } while(0)
-#define PWR_SW_SetDigitalOutput()   do { TRISCbits.TRISC1 = 0; } while(0)
-#define PWR_SW_SetAnalogMode()      do { ANSELCbits.ANSC1 = 1; } while(0)
-#define PWR_SW_SetDigitalMode()     do { ANSELCbits.ANSC1 = 0; } while(0)
+// get/set IO_RC1 aliases
+#define IO_RC1_TRIS                 TRISCbits.TRISC1
+#define IO_RC1_LAT                  LATCbits.LATC1
+#define IO_RC1_PORT                 PORTCbits.RC1
+#define IO_RC1_ANS                  ANSELCbits.ANSC1
+#define IO_RC1_SetHigh()            do { LATCbits.LATC1 = 1; } while(0)
+#define IO_RC1_SetLow()             do { LATCbits.LATC1 = 0; } while(0)
+#define IO_RC1_Toggle()             do { LATCbits.LATC1 = ~LATCbits.LATC1; } while(0)
+#define IO_RC1_GetValue()           PORTCbits.RC1
+#define IO_RC1_SetDigitalInput()    do { TRISCbits.TRISC1 = 1; } while(0)
+#define IO_RC1_SetDigitalOutput()   do { TRISCbits.TRISC1 = 0; } while(0)
+#define IO_RC1_SetAnalogMode()      do { ANSELCbits.ANSC1 = 1; } while(0)
+#define IO_RC1_SetDigitalMode()     do { ANSELCbits.ANSC1 = 0; } while(0)
 
 // get/set IO_RC2 aliases
 #define IO_RC2_TRIS                 TRISCbits.TRISC2

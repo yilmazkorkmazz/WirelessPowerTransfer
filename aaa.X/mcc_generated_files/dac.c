@@ -57,8 +57,8 @@
 
 void DAC_Initialize(void)
 {
-    // DACEN disabled; DACPSS VREF+; DACOE1 disabled; DACOE2 disabled; 
-    DACCON0 = 0x04;
+    // DACEN disabled; DACPSS VREF+; DACOE1 enabled; DACOE2 enabled; 
+    DACCON0 = 0x34;
     // DACR 8; 
     DACCON1 = 0x08;
 }

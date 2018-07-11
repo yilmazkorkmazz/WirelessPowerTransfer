@@ -1,7 +1,8 @@
- build/default/production/mcc_generated_files/interrupt_manager.d  \
- build/default/production/mcc_generated_files/interrupt_manager.p1:  \
- mcc_generated_files/interrupt_manager.c  \
+ build/default/production/errorCheck.d  \
+ build/default/production/errorCheck.p1:  \
+ errorCheck.c  \
 mcc_generated_files/mcc.h  \
+errorCheck.h  \
 mcc_generated_files/adc.h  \
 mcc_generated_files/ext_int.h  \
 mcc_generated_files/interrupt_manager.h  \

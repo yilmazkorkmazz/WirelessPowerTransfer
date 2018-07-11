@@ -1,31 +1,9 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1646 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic16f1503.h
-[v _LATA `Vuc ~T0 @X0 0 e@268 ]
-"1690
-[v _LATC `Vuc ~T0 @X0 0 e@270 ]
-"930
-[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
-"979
-[v _TRISC `Vuc ~T0 @X0 0 e@142 ]
-"2306
-[v _ANSELC `Vuc ~T0 @X0 0 e@398 ]
-"2260
-[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
-"2533
-[v _WPUA `Vuc ~T0 @X0 0 e@524 ]
-"1143
-[s S68 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S68 . PS PSA TMR0SE TMR0CS INTEDG nWPUEN ]
-"1151
-[s S69 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S69 . PS0 PS1 PS2 . T0SE T0CS ]
-"1142
-[u S67 `S68 1 `S69 1 ]
-[n S67 . . . ]
-"1160
-[v _OPTION_REGbits `VS67 ~T0 @X0 0 e@149 ]
-"2216
-[v _APFCON `Vuc ~T0 @X0 0 e@285 ]
+[v F2951 `(v ~T0 @X0 0 tf ]
+"1137 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic16f1503.h
+[v _OPTION_REG `Vuc ~T0 @X0 0 e@149 ]
+"619
+[v _TMR0 `Vuc ~T0 @X0 0 e@21 ]
 "341
 [s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
@@ -37,6 +15,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . . ]
 "358
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
+[v F2948 `(v ~T0 @X0 0 tf ]
+"238 mcc_generated_files/tmr0.h
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F2948 ]
+"274
+[v _TMR0_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
+"113 mcc_generated_files/tmr0.c
+[v _errorOccured `(i ~T0 @X0 0 ef ]
+"115
+[v _isThereConnection `(i ~T0 @X0 0 ef ]
+"117
+[v _stopTheTransmission `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2841,60 +2830,226 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
-[; ;pin_manager.h: 136: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 148: void PIN_MANAGER_IOC(void);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-"57 mcc_generated_files/pin_manager.c
-[v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
-"58
+[; ;tmr0.h: 98: void TMR0_Initialize(void);
+[; ;tmr0.h: 129: uint8_t TMR0_ReadTimer(void);
+[; ;tmr0.h: 168: void TMR0_WriteTimer(uint8_t timerVal);
+[; ;tmr0.h: 204: void TMR0_Reload(void);
+[; ;tmr0.h: 219: void TMR0_ISR(void);
+[; ;tmr0.h: 238: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;tmr0.h: 256: extern void (*TMR0_InterruptHandler)(void);
+[; ;tmr0.h: 274: void TMR0_DefaultInterruptHandler(void);
+[; ;tmr0.h: 275: void interrupt Timer0_ISR(void);
+"60 mcc_generated_files/tmr0.c
+[v _timer0ReloadVal `Vuc ~T0 @X0 1 e ]
+[; ;tmr0.c: 60: volatile uint8_t timer0ReloadVal;
+"61
+[v _TMR0_InterruptHandler `*F2951 ~T0 @X0 1 e ]
+[; ;tmr0.c: 61: void (*TMR0_InterruptHandler)(void);
+"66
+[v _TMR0_Initialize `(v ~T0 @X0 1 ef ]
+"67
 {
-[; ;pin_manager.c: 57: void PIN_MANAGER_Initialize(void)
-[; ;pin_manager.c: 58: {
-[e :U _PIN_MANAGER_Initialize ]
+[; ;tmr0.c: 66: void TMR0_Initialize(void)
+[; ;tmr0.c: 67: {
+[e :U _TMR0_Initialize ]
 [f ]
-[; ;pin_manager.c: 62: LATA = 0x20;
-"62
-[e = _LATA -> -> 32 `i `uc ]
-[; ;pin_manager.c: 63: LATC = 0x00;
-"63
-[e = _LATC -> -> 0 `i `uc ]
-[; ;pin_manager.c: 68: TRISA = 0x3E;
-"68
-[e = _TRISA -> -> 62 `i `uc ]
-[; ;pin_manager.c: 69: TRISC = 0x3D;
-"69
-[e = _TRISC -> -> 61 `i `uc ]
-[; ;pin_manager.c: 74: ANSELC = 0x09;
+[; ;tmr0.c: 71: OPTION_REG = (uint8_t)((OPTION_REG & 0xC0) | 0xFF & 0x3F);
+"71
+[e = _OPTION_REG -> | & -> _OPTION_REG `i -> 192 `i & -> 255 `i -> 63 `i `uc ]
+[; ;tmr0.c: 74: TMR0 = 0x38;
 "74
-[e = _ANSELC -> -> 9 `i `uc ]
-[; ;pin_manager.c: 75: ANSELA = 0x13;
-"75
-[e = _ANSELA -> -> 19 `i `uc ]
-[; ;pin_manager.c: 80: WPUA = 0x00;
+[e = _TMR0 -> -> 56 `i `uc ]
+[; ;tmr0.c: 77: timer0ReloadVal= 56;
+"77
+[e = _timer0ReloadVal -> -> 56 `i `uc ]
+[; ;tmr0.c: 80: INTCONbits.TMR0IF = 0;
 "80
-[e = _WPUA -> -> 0 `i `uc ]
-[; ;pin_manager.c: 81: OPTION_REGbits.nWPUEN = 1;
-"81
-[e = . . _OPTION_REGbits 0 5 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 90: APFCON = 0x00;
-"90
-[e = _APFCON -> -> 0 `i `uc ]
-[; ;pin_manager.c: 93: INTCONbits.IOCIE = 1;
-"93
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 95: }
-"95
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;tmr0.c: 83: INTCONbits.TMR0IE = 1;
+"83
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+[; ;tmr0.c: 86: TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
+"86
+[e ( _TMR0_SetInterruptHandler (1 &U _TMR0_DefaultInterruptHandler ]
+[; ;tmr0.c: 87: }
+"87
 [e :UE 341 ]
 }
-"97
-[v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
-"98
+"89
+[v _TMR0_ReadTimer `(uc ~T0 @X0 1 ef ]
+"90
 {
-[; ;pin_manager.c: 97: void PIN_MANAGER_IOC(void)
-[; ;pin_manager.c: 98: {
-[e :U _PIN_MANAGER_IOC ]
+[; ;tmr0.c: 89: uint8_t TMR0_ReadTimer(void)
+[; ;tmr0.c: 90: {
+[e :U _TMR0_ReadTimer ]
 [f ]
-[; ;pin_manager.c: 99: }
-"99
+"91
+[v _readVal `uc ~T0 @X0 1 a ]
+[; ;tmr0.c: 91: uint8_t readVal;
+[; ;tmr0.c: 93: readVal = TMR0;
+"93
+[e = _readVal _TMR0 ]
+[; ;tmr0.c: 95: return readVal;
+"95
+[e ) _readVal ]
+[e $UE 342  ]
+[; ;tmr0.c: 96: }
+"96
 [e :UE 342 ]
+}
+"98
+[v _TMR0_WriteTimer `(v ~T0 @X0 1 ef1`uc ]
+"99
+{
+[; ;tmr0.c: 98: void TMR0_WriteTimer(uint8_t timerVal)
+[; ;tmr0.c: 99: {
+[e :U _TMR0_WriteTimer ]
+"98
+[v _timerVal `uc ~T0 @X0 1 r1 ]
+"99
+[f ]
+[; ;tmr0.c: 101: TMR0 = timerVal;
+"101
+[e = _TMR0 _timerVal ]
+[; ;tmr0.c: 102: }
+"102
+[e :UE 343 ]
+}
+"104
+[v _TMR0_Reload `(v ~T0 @X0 1 ef ]
+"105
+{
+[; ;tmr0.c: 104: void TMR0_Reload(void)
+[; ;tmr0.c: 105: {
+[e :U _TMR0_Reload ]
+[f ]
+[; ;tmr0.c: 107: TMR0 = timer0ReloadVal;
+"107
+[e = _TMR0 _timer0ReloadVal ]
+[; ;tmr0.c: 108: }
+"108
+[e :UE 344 ]
+}
+"110
+[v _TMR0_ISR `(v ~T0 @X0 1 ef ]
+"111
+{
+[; ;tmr0.c: 110: void TMR0_ISR(void)
+[; ;tmr0.c: 111: {
+[e :U _TMR0_ISR ]
+[f ]
+[; ;tmr0.c: 113: if ( errorOccured() == 0)
+"113
+[e $ ! == ( _errorOccured ..  -> 0 `i 346  ]
+[; ;tmr0.c: 114: {
+"114
+{
+[; ;tmr0.c: 115: if (isThereConnection() == 0)
+"115
+[e $ ! == ( _isThereConnection ..  -> 0 `i 347  ]
+[; ;tmr0.c: 116: {
+"116
+{
+[; ;tmr0.c: 117: stopTheTransmission();
+"117
+[e ( _stopTheTransmission ..  ]
+"118
+}
+[e :U 347 ]
+"119
+}
+[; ;tmr0.c: 118: }
+[; ;tmr0.c: 119: }
+[e $U 348  ]
+"120
+[e :U 346 ]
+[; ;tmr0.c: 120: else if (errorOccured() == 1)
+[e $ ! == ( _errorOccured ..  -> 1 `i 349  ]
+[; ;tmr0.c: 121: {
+"121
+{
+[; ;tmr0.c: 122: stopTheTransmission();
+"122
+[e ( _stopTheTransmission ..  ]
+"123
+}
+[e :U 349 ]
+"127
+[e :U 348 ]
+[; ;tmr0.c: 123: }
+[; ;tmr0.c: 127: INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;tmr0.c: 129: TMR0 = timer0ReloadVal;
+"129
+[e = _TMR0 _timer0ReloadVal ]
+[; ;tmr0.c: 131: if(TMR0_InterruptHandler)
+"131
+[e $ ! != _TMR0_InterruptHandler -> -> 0 `i `*F2951 350  ]
+[; ;tmr0.c: 132: {
+"132
+{
+[; ;tmr0.c: 133: TMR0_InterruptHandler();
+"133
+[e ( *U _TMR0_InterruptHandler ..  ]
+"134
+}
+[e :U 350 ]
+[; ;tmr0.c: 134: }
+[; ;tmr0.c: 137: }
+"137
+[e :UE 345 ]
+}
+"140
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F2948 ]
+{
+[; ;tmr0.c: 140: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
+[e :U _TMR0_SetInterruptHandler ]
+[v F2973 `(v ~T0 @X0 0 tf ]
+[v _InterruptHandler `*F2973 ~T0 @X0 1 r1 ]
+[f ]
+[; ;tmr0.c: 141: TMR0_InterruptHandler = InterruptHandler;
+"141
+[e = _TMR0_InterruptHandler _InterruptHandler ]
+[; ;tmr0.c: 142: }
+"142
+[e :UE 351 ]
+}
+"144
+[v _TMR0_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
+{
+[; ;tmr0.c: 144: void TMR0_DefaultInterruptHandler(void){
+[e :U _TMR0_DefaultInterruptHandler ]
+[f ]
+[; ;tmr0.c: 147: }
+"147
+[e :UE 352 ]
 }

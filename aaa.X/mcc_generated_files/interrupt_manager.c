@@ -66,18 +66,13 @@ void interrupt INTERRUPT_InterruptManager (void)
         {
             //Unhandled Interrupt
         }
-    }  
-    else if (INTCONbits.T0IF && INTCONbits.T0IE) 
-    {                                     
-            TMR0 -= 250;               
-            INTCONbits.T0IF = 0;                        
-    }
+    } 
     else
     {
         //Unhandled Interrupt
     }
 }
-
+ 
 /**
  End of File
 */

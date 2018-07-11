@@ -26,7 +26,7 @@
  */
 #include <xc.h>
 #include "ext_int.h"
-#include "mcc_generated_files/mcc.h"
+
 
 void (*INT_InterruptHandler)(void);
 
@@ -72,5 +72,7 @@ void EXT_INT_Initialize(void)
     //EXT_INT_InterruptEnable(); 
     INTCONbits.INTE = 1;
 
+   
 }
+
 
